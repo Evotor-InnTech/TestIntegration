@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     uuid = UUID.randomUUID().toString(),
                     positions = listOf(
                         Position_V1(
-                            price = BigDecimal(15),
+                            price = BigDecimal(15.00),
                             name = "Сок",
                             measureName = "шт",
                             quantity = BigDecimal.ONE,
@@ -37,7 +37,11 @@ class MainActivity : AppCompatActivity() {
                         )
                     ),
                     operationType = OperationType_V1.SELL,
-                    receiptDiscount = BigDecimal(4.00)
+                    receiptDiscount = BigDecimal(4.00),
+                    paymentAddress = "Невский пр.",
+                    paymentPlace = "Невский пр.",
+                    clientEmail = "a@e.ru",
+                    shouldPrintReceipt = true
                 )
             )
         }
