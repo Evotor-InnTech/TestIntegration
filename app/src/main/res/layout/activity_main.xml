@@ -15,12 +15,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/payment_v1_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/start_payment_v1" />
-
-        <Button
             android:id="@+id/sell_v2_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,8 +29,6 @@
             android:text="@string/start_payback_v2" />
 
     </LinearLayout>
-
-
 
     <TextView
         android:id="@+id/text"

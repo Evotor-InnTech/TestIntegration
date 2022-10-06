@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">TestIntegration</string>
-    <string name="start_payment_v1">Start payment V1</string>
     <string name="start_sell_v2">Start sell V2</string>
     <string name="start_payback_v2">Start payback V2</string>
 </resources>
