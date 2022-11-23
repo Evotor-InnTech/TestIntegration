@@ -15,18 +15,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/sell_v2_btn"
+            android:id="@+id/sell_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/start_sell_v2" />
+            android:text="@string/start_sell" />
 
         <Button
-            android:id="@+id/payback_v2_btn"
+            android:id="@+id/payback_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/start_payback_v2" />
+            android:text="@string/start_payback" />
 
     </LinearLayout>
 
