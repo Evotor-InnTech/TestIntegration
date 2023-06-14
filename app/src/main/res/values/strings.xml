@@ -1,5 +1,84 @@
 <resources>
     <string name="app_name">TestIntegration</string>
-    <string name="start_sell">Start sell</string>
-    <string name="start_payback">Start payback</string>
+
+    <!-- Login Screen -->
+    <string name="login_hint">Логин</string>
+    <string name="login_password_hint">Пароль</string>
+    <string name="login_user_id_hint">userId</string>
+    <string name="login_inn_hint">ИНН</string>
+    <string name="login_reset_auth_text">Сбросить авторизацию</string>
+    <string name="login_create_receipt_text">Создать чек</string>
+    <string name="login_error">Ошибка</string>
+
+    <!-- Create Receipt Screen -->
+    <string name="receipt_sell_text">Продажа</string>
+    <string name="receipt_payback_text">Возврат</string>
+    <string name="receipt_add_position_text">Добавить позицию</string>
+    <string name="receipt_contact_details_hint">Email или телефон</string>
+    <string name="receipt_should_print_receipt_text">Печатать</string>
+    <string name="receipt_payment_type_hint">Тип оплаты</string>
+    <string name="receipt_payment_address_hint">Адрес расчета</string>
+    <string name="receipt_payment_place_hint">Место расчета</string>
+    <string name="receipt_discount_hint">Скидка на чек</string>
+    <string name="receipt_mdlp_hint">Идентификатор МД</string>
+    <string name="receipt_sell_uuid_hint">UUID чека продажи</string>
+    <string name="receipt_to_mk_text">В Мобильный кассир</string>
+
+    <!-- Add Position Dialog -->
+    <string name="position_name_hint">Наименование</string>
+    <string name="position_price_hint">Цена</string>
+    <string name="position_quantity_hint">Количество</string>
+    <string name="position_measure_hint">Единицы измерения</string>
+    <string name="position_tax_hint">Налоговая ставка</string>
+    <string name="position_commodity_id_hint">UUID товара</string>
+    <string name="position_type_hint">Тип товара</string>
+    <string name="position_discount_hint">Скидка</string>
+    <string name="position_mark_hint">Марка</string>
+    <string name="position_settlement_method_type">Тип расчета</string>
+    <string name="action_add">Добавить</string>
+    <string name="action_cancel">Отмена</string>
+
+    <!-- Default Receipt -->
+    <string name="default_receipt_contact_details">test@test.ru</string>
+    <string name="default_receipt_payment_address">test@test.ru</string>
+
+    <!-- Default Position -->
+    <string name="default_position_name">Сок</string>
+    <string name="default_measure_name">шт</string>
+
+    <!-- Payment Type -->
+    <string name="payment_type_cash">Наличные</string>
+    <string name="payment_type_electron">Внешний терминал</string>
+    <string name="payment_type_tap_on_phone">Tap On Phone</string>
+
+    <!-- Tax -->
+    <string name="tax_without_vat">НДС не облагается</string>
+    <string name="tax_vat_10">НДС 10%</string>
+    <string name="tax_vat_20">НДС 20%</string>
+    <string name="tax_vat_0">НДС 0%</string>
+    <string name="tax_vat_10_110">НДС с расчетной ставкой 10%</string>
+    <string name="tax_vat_20_120">НДС с расчетной ставкой 20%</string>
+
+    <!-- Inventory Type -->
+    <string name="inventory_type_normal">Обычный</string>
+    <string name="inventory_type_alcohol_marked">Маркированный алкоголь</string>
+    <string name="inventory_type_alcohol_not_marked">Немаркированный алкоголь</string>
+    <string name="inventory_type_tobacco_marked">Табак</string>
+    <string name="inventory_type_shoe_marked">Обувь</string>
+    <string name="inventory_type_medicines_marked">Лекарства</string>
+    <string name="inventory_type_service">Услуга</string>
+    <string name="inventory_type_tires_marked">Шины</string>
+    <string name="inventory_type_perfume_marked">Духи</string>
+    <string name="inventory_type_light_industry_marked">Одежда и белье</string>
+    <string name="inventory_type_photos_marked">Фототовары</string>
+
+    <!-- Settlement Method Type -->
+    <string name="settlement_method_type_full">Полный расчёт</string>
+    <string name="settlement_method_type_full_prepayment">Предоплата 100%</string>
+    <string name="settlement_method_type_partial">Частичный расчёт и кредит</string>
+    <string name="settlement_method_type_partial_prepayment">Предоплата</string>
+    <string name="settlement_method_type_advance_payment">Аванс</string>
+    <string name="settlement_method_type_lend">Передача в кредит</string>
+    <string name="settlement_method_type_loan_payment">Оплата кредита</string>
+
 </resources>
