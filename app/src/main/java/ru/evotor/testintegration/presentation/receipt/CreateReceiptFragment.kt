@@ -80,6 +80,8 @@ class CreateReceiptFragment : Fragment() {
         initPaymentTypeDropDownInput()
         setInputTexts()
 
+        viewModel.createReceipt()
+
         selectOperationType(viewModel.currentReceipt.operationType)
         shouldPrintReceiptSwitch.isChecked = viewModel.currentReceipt.shouldPrintReceipt
 

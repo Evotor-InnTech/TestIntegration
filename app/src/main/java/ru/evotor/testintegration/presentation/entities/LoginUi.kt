@@ -9,5 +9,5 @@ data class LoginUi(
 ) {
 
     fun isValid(): Boolean =
-        login.isNotEmpty() && password.isNotEmpty() && userId.isNotEmpty()
+        login.isNotEmpty() && password.isNotEmpty()
 }
