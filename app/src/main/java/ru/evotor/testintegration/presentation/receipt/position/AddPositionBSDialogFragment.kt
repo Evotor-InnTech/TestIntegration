@@ -24,6 +24,7 @@ import ru.evotor.testintegration.utils.toBigDecimal
 import ru.evotor.testintegration.utils.toBigDecimalIfNotEmpty
 import ru.evotor.testintegration.utils.toString
 import ru.evotor.testintegration.utils.toStringIfNotEmpty
+import java.math.BigDecimal
 
 class AddPositionBSDialogFragment : BottomSheetDialogFragment() {
 
@@ -78,32 +79,28 @@ class AddPositionBSDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun initListeners() {
-        currentPosition?.apply {
-            nameEditText.addTextChangedListener { editable ->
-                currentPosition = copy(name = editable.toString())
-            }
-            priceEditText.addTextChangedListener { editable ->
-                currentPosition = copy(price = editable.toBigDecimal())
-            }
-            measureEditText.addTextChangedListener { editable ->
-                currentPosition = copy(measureName = editable.toString())
-            }
-            quantityEditText.addTextChangedListener { editable ->
-                currentPosition = copy(quantity = editable.toBigDecimal())
-            }
-            commodityIdEditText.addTextChangedListener { editable ->
-                currentPosition = copy(commodityId = editable?.toStringIfNotEmpty())
-            }
-            discountEditText.addTextChangedListener { editable ->
-                currentPosition = copy(
-                    priceWithDiscount = editable?.toBigDecimalIfNotEmpty()?.let { discount ->
-                        price.minus(discount).multiply(quantity).roundForTwoDigits()
-                    }
-                )
-            }
-            markEditText.addTextChangedListener { editable ->
-                currentPosition = copy(mark = editable?.toStringIfNotEmpty())
-            }
+        nameEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(name = editable.toString())
+        }
+        priceEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(price = editable.toBigDecimal())
+        }
+        measureEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(measureName = editable.toString())
+        }
+        quantityEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(quantity = editable.toBigDecimal())
+        }
+        commodityIdEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(commodityId = editable?.toStringIfNotEmpty())
+        }
+        discountEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(
+                priceWithDiscount = calculatePriceWithDiscount(editable?.toBigDecimalIfNotEmpty())
+            )
+        }
+        markEditText.addTextChangedListener { editable ->
+            currentPosition = currentPosition?.copy(mark = editable?.toStringIfNotEmpty())
         }
 
         addButton.setOnClickListener {
@@ -113,6 +110,13 @@ class AddPositionBSDialogFragment : BottomSheetDialogFragment() {
             dismiss()
         }
     }
+
+    private fun calculatePriceWithDiscount(positionDiscount: BigDecimal?): BigDecimal? {
+        val discount = positionDiscount ?: return null
+        val quantity = currentPosition?.quantity ?: return null
+        return currentPosition?.price?.minus(discount)?.multiply(quantity)?.roundForTwoDigits()
+    }
+
 
     private fun onAddButtonClick() {
         setFragmentResult(
