@@ -31,7 +31,7 @@ class ReceiptCreationViewModel(
     private val credentials: Credentials,
     private val resetAuthorization: Boolean,
     private val integration: Integration = RepositoryModule.integration,
-    private val context: Context = RepositoryModule.applicationContext
+    context: Context = RepositoryModule.applicationContext
 ) : ViewModel() {
 
     var currentReceipt: ReceiptUi = ReceiptUi.getNewReceipt(context)
@@ -42,10 +42,6 @@ class ReceiptCreationViewModel(
 
     private val _positionsState = MutableLiveData<PositionsState>()
     val positionsState: LiveData<PositionsState> = _positionsState.distinctUntilChanged()
-
-    fun createReceipt() {
-        currentReceipt = ReceiptUi.getNewReceipt(context)
-    }
 
     fun addPosition(position: PositionUi) {
         val positions = currentReceipt.positions.toMutableList()
