@@ -40,7 +40,7 @@
 
     <!-- Default Receipt -->
     <string name="default_receipt_contact_details">test@test.ru</string>
-    <string name="default_receipt_payment_address">test@test.ru</string>
+    <string name="default_receipt_payment_address">Москва</string>
 
     <!-- Default Position -->
     <string name="default_position_name">Сок</string>
