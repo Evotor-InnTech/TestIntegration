@@ -6,6 +6,8 @@
     <string name="login_password_hint">Пароль</string>
     <string name="login_user_id_hint">userId</string>
     <string name="login_inn_hint">ИНН</string>
+    <string name="login_qr_id_hint">qrId</string>
+    <string name="login_device_id_hint">deviceId</string>
     <string name="login_reset_auth_text">Сбросить авторизацию</string>
     <string name="login_create_receipt_text">Создать чек</string>
     <string name="login_error">Ошибка</string>
@@ -50,7 +52,7 @@
     <string name="payment_type_cash">Наличные</string>
     <string name="payment_type_electron">Внешний терминал</string>
     <string name="payment_type_tap_on_phone">Tap On Phone</string>
-
+    <string name="payment_type_qr_pay">QR Pay</string>
     <!-- Tax -->
     <string name="tax_without_vat">НДС не облагается</string>
     <string name="tax_vat_10">НДС 10%</string>

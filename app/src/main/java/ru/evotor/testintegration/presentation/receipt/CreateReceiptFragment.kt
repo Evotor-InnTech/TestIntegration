@@ -14,6 +14,7 @@ import androidx.core.widget.addTextChangedListener
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_create_receipt.*
 import ru.evotor.integration.entities.credentials.Credentials
+import ru.evotor.integration.entities.device.Device
 import ru.evotor.integration.entities.receipt.OperationType
 import ru.evotor.integration.entities.receipt.PaymentType
 import ru.evotor.testintegration.R
@@ -29,21 +30,32 @@ import ru.evotor.testintegration.utils.viewModels
 class CreateReceiptFragment : Fragment() {
 
     companion object {
+        private const val DEVICE_KEY = "device_key"
         private const val CREDENTIALS_KEY = "credentials_key"
         private const val RESET_AUTHORIZATION_KEY = "reset_authorization_key"
 
         fun newInstance(
+            device: Device?,
             credentials: Credentials,
             resetAuthorization: Boolean
         ) = CreateReceiptFragment().apply {
             arguments = bundleOf(
+                DEVICE_KEY to device,
                 CREDENTIALS_KEY to credentials,
                 RESET_AUTHORIZATION_KEY to resetAuthorization
             )
         }
     }
 
-    private val viewModel by viewModels { ReceiptCreationViewModel(credentials, resetAuthorization) }
+    private val viewModel by viewModels {
+        ReceiptCreationViewModel(
+            device,
+            credentials,
+            resetAuthorization
+        )
+    }
+
+    private val device: Device? by lazy { arguments?.getParcelable(DEVICE_KEY) }
 
     private val credentials: Credentials by lazy {
         arguments?.getParcelable<Credentials>(CREDENTIALS_KEY) ?: error("credentials is null")
@@ -60,9 +72,10 @@ class CreateReceiptFragment : Fragment() {
 
     private fun setAddPositionDialogListener() {
         listenResult(AddPositionBSDialogFragment.ADD_BARCODE_KEY) { bundle ->
-            bundle.getParcelable<PositionUi>(AddPositionBSDialogFragment.POSITION_ARG)?.let { position ->
-                viewModel.addPosition(position)
-            }
+            bundle.getParcelable<PositionUi>(AddPositionBSDialogFragment.POSITION_ARG)
+                ?.let { position ->
+                    viewModel.addPosition(position)
+                }
         }
     }
 
