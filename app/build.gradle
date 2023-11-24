@@ -53,8 +53,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 
-    //replace after test!
-    implementation 'com.github.Evotor-InnTech:RemoteCashierSDK:qr2-SNAPSHOT'
+    implementation 'com.github.Evotor-InnTech:RemoteCashierSDK:1.2.2'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
