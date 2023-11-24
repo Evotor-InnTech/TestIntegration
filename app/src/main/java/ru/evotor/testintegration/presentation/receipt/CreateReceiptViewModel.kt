@@ -9,6 +9,7 @@ import androidx.lifecycle.distinctUntilChanged
 import ru.evotor.integration.Integration
 import ru.evotor.integration.entities.TransactionResult
 import ru.evotor.integration.entities.credentials.Credentials
+import ru.evotor.integration.entities.device.Device
 import ru.evotor.integration.entities.receipt.OperationType
 import ru.evotor.integration.entities.receipt.PaymentType
 import ru.evotor.integration.entities.receipt.Receipt
@@ -28,6 +29,7 @@ data class PositionsState(
 }
 
 class ReceiptCreationViewModel(
+    private val device: Device?,
     private val credentials: Credentials,
     private val resetAuthorization: Boolean,
     private val integration: Integration = RepositoryModule.integration,
@@ -103,6 +105,7 @@ class ReceiptCreationViewModel(
             integration.startSell(
                 credentials = credentials,
                 receipt = toReceipt(),
+                device = device,
                 resetAuthorization = resetAuthorization
             )
         }
@@ -113,13 +116,17 @@ class ReceiptCreationViewModel(
             integration.startPayback(
                 credentials = credentials,
                 receipt = toReceipt(),
+                device = device,
                 sellReceiptUuid = sellReceiptUuid,
                 resetAuthorization = resetAuthorization
             )
         }
     }
 
-    fun handlePaymentResult(registry: ActivityResultRegistry, callback: (TransactionResult) -> Unit) {
+    fun handlePaymentResult(
+        registry: ActivityResultRegistry,
+        callback: (TransactionResult) -> Unit
+    ) {
         integration.handlePaymentResult(registry, callback)
     }
 

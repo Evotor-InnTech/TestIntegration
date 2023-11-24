@@ -12,6 +12,7 @@ fun PaymentType.toString(context: Context) =
         PaymentType.CASH -> context.getString(R.string.payment_type_cash)
         PaymentType.ELECTRON -> context.getString(R.string.payment_type_electron)
         PaymentType.TAP_ON_PHONE -> context.getString(R.string.payment_type_tap_on_phone)
+        PaymentType.QR_PAY -> context.getString(R.string.payment_type_qr_pay)
     }
 
 fun Tax.toString(context: Context) =

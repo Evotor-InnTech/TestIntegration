@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16"
                 android:hint="@string/login_inn_hint"
-                app:layout_constraintBottom_toTopOf="@+id/resetAuthCheckBox"
+                app:layout_constraintBottom_toTopOf="@+id/qrTextInput"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/userIdTextInput">
@@ -93,6 +93,41 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:maxLength="12" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/qrTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:hint="@string/login_qr_id_hint"
+                app:layout_constraintBottom_toTopOf="@+id/deviceTextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/innTextInput">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/qrEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/deviceTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:hint="@string/login_device_id_hint"
+                app:layout_constraintBottom_toTopOf="@+id/resetAuthCheckBox"
+                app:layout_constraintTop_toBottomOf="@+id/qrTextInput">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/deviceEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,7 +142,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/innTextInput" />
+                app:layout_constraintTop_toBottomOf="@+id/deviceTextInput" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,11 +153,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_8"
-        android:text="@string/login_create_receipt_text"
         android:enabled="false"
+        android:text="@string/login_create_receipt_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
