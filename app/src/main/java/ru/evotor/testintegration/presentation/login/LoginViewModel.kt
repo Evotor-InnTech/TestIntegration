@@ -49,8 +49,12 @@ class LoginViewModel(
         currentLogin = currentLogin.copy(qrId = qrId)
     }
 
-    fun onDeviceIdChanged(deviceId: String?){
+    fun onDeviceIdChanged(deviceId: String?) {
         currentLogin = currentLogin.copy(deviceId = deviceId)
+    }
+
+    fun onEmployeeIdChanged(employeeId: String?) {
+        currentLogin = currentLogin.copy(employeeId = employeeId)
     }
 
     fun onResetAuthorizationChecked(isResetAuthorization: Boolean) {
