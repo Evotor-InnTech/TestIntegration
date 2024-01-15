@@ -12,6 +12,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_login.*
 import ru.evotor.integration.entities.credentials.Credentials
 import ru.evotor.integration.entities.device.Device
+import ru.evotor.integration.entities.employee.Employee
 import ru.evotor.testintegration.R
 import ru.evotor.testintegration.presentation.receipt.CreateReceiptFragment
 import ru.evotor.testintegration.utils.openFragment
@@ -53,6 +54,9 @@ class LoginFragment : Fragment() {
         deviceEditText.addTextChangedListener { editable ->
             viewModel.onDeviceIdChanged(editable?.toStringIfNotEmpty())
         }
+        employeeEditText.addTextChangedListener { editable ->
+            viewModel.onEmployeeIdChanged(editable?.toStringIfNotEmpty())
+        }
         resetAuthCheckBox.setOnCheckedChangeListener { _, isChecked ->
             viewModel.onResetAuthorizationChecked(isChecked)
         }
@@ -78,7 +82,15 @@ class LoginFragment : Fragment() {
                         qrId = qrId
                     )
                 } else null
-                openFragment(CreateReceiptFragment.newInstance(device, credentials, isResetAuthorization))
+                val employee = employeeId?.let { Employee(it) }
+                openFragment(
+                    CreateReceiptFragment.newInstance(
+                        device,
+                        employee,
+                        credentials,
+                        isResetAuthorization
+                    )
+                )
             }
         }
         viewModel.tokenErrorState.observe(viewLifecycleOwner) {

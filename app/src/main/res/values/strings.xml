@@ -8,6 +8,7 @@
     <string name="login_inn_hint">ИНН</string>
     <string name="login_qr_id_hint">qrId</string>
     <string name="login_device_id_hint">deviceId</string>
+    <string name="login_employee_id_hint">employeeId</string>
     <string name="login_reset_auth_text">Сбросить авторизацию</string>
     <string name="login_create_receipt_text">Создать чек</string>
     <string name="login_error">Ошибка</string>

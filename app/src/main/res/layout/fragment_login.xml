@@ -120,11 +120,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_16"
                 android:hint="@string/login_device_id_hint"
-                app:layout_constraintBottom_toTopOf="@+id/resetAuthCheckBox"
+                app:layout_constraintBottom_toTopOf="@+id/employeeTextInput"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/qrTextInput">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/deviceEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/employeeTextInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:hint="@string/login_employee_id_hint"
+                app:layout_constraintBottom_toTopOf="@+id/resetAuthCheckBox"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deviceTextInput">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/employeeEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"/>

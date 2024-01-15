@@ -7,6 +7,7 @@ data class LoginUi(
     val inn: String? = null,
     val qrId: Long? = null,
     val deviceId: String? = null,
+    val employeeId: String? = null,
     val isResetAuthorization: Boolean = false
 ) {
 

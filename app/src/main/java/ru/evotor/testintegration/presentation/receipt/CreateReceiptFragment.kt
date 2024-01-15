@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_create_receipt.*
 import ru.evotor.integration.entities.credentials.Credentials
 import ru.evotor.integration.entities.device.Device
+import ru.evotor.integration.entities.employee.Employee
 import ru.evotor.integration.entities.receipt.OperationType
 import ru.evotor.integration.entities.receipt.PaymentType
 import ru.evotor.testintegration.R
@@ -31,16 +32,19 @@ class CreateReceiptFragment : Fragment() {
 
     companion object {
         private const val DEVICE_KEY = "device_key"
+        private const val EMPLOYEE_KEY = "employee_key"
         private const val CREDENTIALS_KEY = "credentials_key"
         private const val RESET_AUTHORIZATION_KEY = "reset_authorization_key"
 
         fun newInstance(
             device: Device?,
+            employee: Employee?,
             credentials: Credentials,
             resetAuthorization: Boolean
         ) = CreateReceiptFragment().apply {
             arguments = bundleOf(
                 DEVICE_KEY to device,
+                EMPLOYEE_KEY to employee,
                 CREDENTIALS_KEY to credentials,
                 RESET_AUTHORIZATION_KEY to resetAuthorization
             )
@@ -48,14 +52,16 @@ class CreateReceiptFragment : Fragment() {
     }
 
     private val viewModel by viewModels {
-        ReceiptCreationViewModel(
+        CreateReceiptViewModel(
             device,
+            employee,
             credentials,
             resetAuthorization
         )
     }
 
     private val device: Device? by lazy { arguments?.getParcelable(DEVICE_KEY) }
+    private val employee: Employee? by lazy { arguments?.getParcelable(EMPLOYEE_KEY) }
 
     private val credentials: Credentials by lazy {
         arguments?.getParcelable<Credentials>(CREDENTIALS_KEY) ?: error("credentials is null")

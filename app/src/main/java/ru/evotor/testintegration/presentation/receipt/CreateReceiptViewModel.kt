@@ -10,6 +10,7 @@ import ru.evotor.integration.Integration
 import ru.evotor.integration.entities.TransactionResult
 import ru.evotor.integration.entities.credentials.Credentials
 import ru.evotor.integration.entities.device.Device
+import ru.evotor.integration.entities.employee.Employee
 import ru.evotor.integration.entities.receipt.OperationType
 import ru.evotor.integration.entities.receipt.PaymentType
 import ru.evotor.integration.entities.receipt.Receipt
@@ -28,8 +29,9 @@ data class PositionsState(
         positions.isNotEmpty()
 }
 
-class ReceiptCreationViewModel(
+class CreateReceiptViewModel(
     private val device: Device?,
+    private val employee: Employee?,
     private val credentials: Credentials,
     private val resetAuthorization: Boolean,
     private val integration: Integration = RepositoryModule.integration,
@@ -106,6 +108,7 @@ class ReceiptCreationViewModel(
                 credentials = credentials,
                 receipt = toReceipt(),
                 device = device,
+                employee = employee,
                 resetAuthorization = resetAuthorization
             )
         }
@@ -117,6 +120,7 @@ class ReceiptCreationViewModel(
                 credentials = credentials,
                 receipt = toReceipt(),
                 device = device,
+                employee = employee,
                 sellReceiptUuid = sellReceiptUuid,
                 resetAuthorization = resetAuthorization
             )
